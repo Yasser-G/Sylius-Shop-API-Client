@@ -10,7 +10,7 @@ const ShopAPI = {
     /**
      * All actions related to cart management.
      */
-    Cart: {
+    cart: {
         /**
          * Pick up your cart from the store
          */

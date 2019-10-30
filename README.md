@@ -1,0 +1,128 @@
+
+# Sylius Shop API Client 
+![npm][npmDownloads] ![PRsBadge] ![npm][npmLicense] ![npm][npmVersion]
+
+### Implement Sylius Shop API Client into your app in just One Step!
+
+- Easy to configure API client for quick use
+- Very simple way to add custom endpoints.
+- Well-Organized and scalable project, All PRs are welcome!
+- All query params, paths and bodies are documented within the code using jsDoc.
+
+
+
+
+
+
+## Instalation 
+
+
+`npm i sylius-shop-api-client`  **- OR -**  `yarn add sylius-shop-api-client`
+
+
+
+
+
+
+
+## Usage
+
+### **API_Client**
+
+###### Usage
+
+```ts
+import { API_Client } from "sylius-shop-api-client"
+
+// Configuration
+
+// Initialize API BaseURL ( Required ) Don't forget trailing /
+API_Client.baseURL = "https://my.web.site/api/"
+
+
+// Set API Default Headers ( Optional ), below values are already defaults.
+const myDefaultHeaders = {
+  "Accept": "application/json",
+  "Content-Type": "application/json",
+}
+API_Client.defaultHeaders = myDefaultHeaders
+
+
+
+// Append New Header (name, value) pair, Any where in your code,
+API_Client.appendHeader("Authorization", "Bearer xxxxx")
+
+// Remove header from default headers, Any where in your code,
+API_Client.removeHeader("Authorization")
+
+
+// Set onUnauthorized handler, More Usage description will be added soon
+API_Client.onUnauthorized = () => {
+      
+ // Clear UserData, Remove Auth Headers
+ // ( Temporarily Not Working )
+
+}
+
+```
+
+
+---
+
+### **ShopAPI**
+
+###### Usage
+
+```ts
+import { ShopAPI } from "sylius-shop-api-client"
+
+// Default Requests usage: 
+
+
+// Async / Await approach
+async loadTaxons() {
+  
+  try {
+
+    const taxons = await ShopAPI.taxons.show_tree()
+
+    // then use taxon constant
+
+  } catch (error) {
+
+    // handle errors
+
+  }
+
+}
+
+// Callbacks approach
+ShopAPI.taxons.show_tree().then((response) => {
+
+// handle response
+
+}).catch((error) => {
+
+  // handle errors
+
+})
+
+
+// Set Custom endpoint:
+/**
+ * Custom Request
+ * @param resourceURL (Required)
+ * @param method request method, (Optional) GET by default
+ * @param requestBody request body (Optional)
+ * @param requestHeaders  (Optional)
+ */
+ShopAPI.custom_request("my_custom_endpoint", "POST", { /** requestBody */ }, { /** requestHeaders */ } )
+
+
+```
+
+
+[npmDownloads]: <https://img.shields.io/npm/dt/sylius-shop-api-client?label=Installs&logo=npm&style=plastic>
+[npmLicense]: <https://img.shields.io/npm/l/sylius-shop-api-client?label=License&style=plastic>
+[npmVersion]: <https://img.shields.io/npm/v/sylius-shop-api-client?label=Latest%20Version&style=plastic>
+[PRsBadge]: <https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=plastic>
