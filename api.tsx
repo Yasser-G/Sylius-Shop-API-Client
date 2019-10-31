@@ -37,7 +37,7 @@ const ShopAPI = {
          * @param content Description of an item. The smallest required amount of data is a product code and quantity for a simple product. Configurable products will require an additional variant_code or options field, but never both.
          * @param token Cart identifier.
          */
-        add: (content: object, token: string, ) =>
+        add: (content: object, token: string) =>
             Client.post(`carts/${token}`, content),
 
         /**
