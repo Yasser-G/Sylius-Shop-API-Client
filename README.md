@@ -108,15 +108,73 @@ ShopAPI.taxons.show_tree().then((response) => {
 })
 
 
-// Set Custom endpoint:
-/**
- * Custom Request
- * @param resourceURL (Required)
- * @param method request method, (Optional) GET by default
- * @param requestBody request body (Optional)
- * @param requestHeaders  (Optional)
- */
-ShopAPI.custom_request("my_custom_endpoint", "POST", { /** requestBody */ }, { /** requestHeaders */ } )
+
+```
+
+---
+
+### **Custom Endpoint Extending**
+
+
+```ts
+import { ShopAPI, API_Client } from "sylius-shop-api-client"
+
+const MyShopAPI = {
+
+  // Spread defaults endpoints
+  ...ShopAPI,
+
+
+  // Create your own enpoints using API_client.
+
+  // Get Method, without query params
+  myEndpoint: () => API_Client.get("endpoint"),
+
+  // Get Method, query params object (will be converted to string)
+  myEndpointCallMethod: (params) => API_Client.get("endpoint", params),
+
+  // Get Method, with changable path and params
+  myEndpointPathMethod: (path, params) => API_Client.get(`endpoint/${path}`, params),
+
+  // Post Method, body object (will be stringified inside)
+  myEndpointPostMethod: (body) => API_Client.post("endpoint", "POST", body),
+
+  // And so on, for put, path and delete 
+  
+  
+
+}
+
+// Then use it anywhere in your code,
+
+// Async / Await approach
+async loadMyData() {
+  
+  try {
+
+    const data = await MyShopAPI.myEndpoint()
+
+    // then use data constant
+
+  } catch (error) {
+
+    // handle errors
+
+  }
+
+}
+
+// Callbacks approach
+MyShopAPI.myEndpoint().then((response) => {
+
+// handle response
+
+}).catch((error) => {
+
+  // handle errors
+
+})
+
 
 
 ```
