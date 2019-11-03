@@ -29,8 +29,6 @@
 
 ### **API_Client**
 
-###### Usage
-
 ```ts
 import { API_Client } from "sylius-shop-api-client"
 
@@ -70,8 +68,6 @@ API_Client.onUnauthorized = () => {
 ---
 
 ### **ShopAPI**
-
-###### Usage
 
 ```ts
 import { ShopAPI } from "sylius-shop-api-client"
@@ -137,9 +133,9 @@ const MyShopAPI = {
   myEndpointPathMethod: (path, params) => API_Client.get(`endpoint/${path}`, params),
 
   // Post Method, body object (will be stringified inside)
-  myEndpointPostMethod: (body) => API_Client.post("endpoint", "POST", body),
+  myEndpointPostMethod: (body) => API_Client.post("endpoint", body),
 
-  // And so on, for put, path and delete 
+  // And so on, for put, patch and delete 
   
   
 
