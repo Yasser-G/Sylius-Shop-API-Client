@@ -1,12 +1,18 @@
 
+---
+# IMPORTANT NOTE: UNDER CONSTRUCTION!
+# This note will be removed when we are ready.
+---
+
+
 # Sylius Shop API Client 
-![npm][npmDownloads] ![PRsBadge] ![npm][npmLicense] ![npm][npmVersion]
+![npm][npmDownloads]  ![npm][npmLicense] ![npm][npmVersion]
 
 ### Implement Sylius Shop API Client into your app in just One Step!
 
 - Easy to configure API client for quick use
 - Very simple way to add custom endpoints.
-- Well-Organized and scalable project, All PRs are welcome!
+- Well-Organized and scalable project.
 - All query params, paths and bodies are documented within the code using jsDoc.
 
 
