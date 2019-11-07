@@ -1,6 +1,7 @@
 import { Client } from '../client'
 
-export const taxons = {
+export default {
+    
     /**
      * Show taxon tree.
      * @param locale Locale in which taxons should be shown.

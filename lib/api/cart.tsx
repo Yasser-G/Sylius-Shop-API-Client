@@ -1,6 +1,6 @@
 import { Client } from '../client'
 
-export const cart = {
+export default {
     /**
      * Pick up your cart from the store
      */

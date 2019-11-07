@@ -8,7 +8,7 @@ import { Client } from './client'
     * @param {object} requestHeaders 
     * @throws {string} Error Message
     * @returns {Promise} JSON Response
-    */
+*/
 export const request = async (
     resourceURL: string,
     method = 'GET',
@@ -45,11 +45,20 @@ export const request = async (
         // Request Failed For Some Reason
         const { message } = await response.json()
 
-        // Custom Reasons actions will be implemented here
+        switch (response.status) {
+
+            case 403:
+                Client.onUnauthorized()
+
+            // Custom Reasons actions will be implemented here
+
+            default:
+                break;
+        }
+
 
         // throw error message
         throw Error(message)
     }
 
 }
-

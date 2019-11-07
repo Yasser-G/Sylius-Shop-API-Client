@@ -1,6 +1,6 @@
 import { Client } from '../client'
 
-export const checkout = {
+export default {
 
 
     /**
