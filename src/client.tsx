@@ -25,6 +25,13 @@ export class Client {
      */
     static cartToken = ""
 
+    /**
+     * Set API Locale
+     * @example
+     * API_Client.locale = "en_US"
+     */
+    static locale = ""
+
 
 
     /**

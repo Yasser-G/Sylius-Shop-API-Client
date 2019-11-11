@@ -6,22 +6,20 @@ export default {
     /**
      * Show product catalog by taxon slug.
      * @param taxonSlug Slug of expected product.
-     * @param locale Locale in which taxons should be shown.
      * @param limit Number of expected products per page.
      * @param page Page number.
      */
-    by_taxon_slug: (taxonSlug: string, locale: string, limit: number, page: number) =>
-        Client.get(`taxon-products/by-slug/${taxonSlug}`, { locale, limit, page }),
+    by_taxon_slug: (taxonSlug: string, limit: number, page: number) =>
+        Client.get(`taxon-products/by-slug/${taxonSlug}`, { locale: Client.locale, limit, page }),
 
     /**
      * Show product catalog by taxon code.
      * @param taxonCode Code of taxonomy for which products should be listed.
-     * @param locale Locale in which taxons should be shown.
      * @param limit Number of expected products per page.
      * @param page Page number.
      */
-    by_taxon_code: (taxonCode: string, locale: string, limit: number, page: number) =>
-        Client.get(`taxon-products/by-code/${taxonCode}`, { locale, limit, page }),
+    by_taxon_code: (taxonCode: string, limit: number, page: number) =>
+        Client.get(`taxon-products/by-code/${taxonCode}`, { locale: Client.locale, limit, page }),
 
 
     /**
@@ -74,25 +72,22 @@ export default {
     /**
      * Show a product with the given code.
      * @param slug Slug of expected product.
-     * @param locale Locale in which taxons should be shown.
      */
-    by_slug: (slug: string, locale) =>
-        Client.get(`products/by-code/${slug}`, { locale }),
+    by_slug: (slug: string) =>
+        Client.get(`products/by-code/${slug}`, { locale: Client.locale }),
 
     /**
      * Show a product with the given code.
      * @param code Code of expected product.
-     * @param locale Locale in which taxons should be shown.
      */
-    by_code: (code: string, locale) =>
-        Client.get(`products/by-code/${code}`, { locale }),
+    by_code: (code: string) =>
+        Client.get(`products/by-code/${code}`, { locale: Client.locale }),
 
     /**
      * Show latest products.
      * @param limit Number of expected products per page.
-     * @param locale Locale in which products should be shown.
      */
-    latest: (limit: number, locale?: string) =>
-        Client.get("product-latest", { limit, locale })
+    latest: (limit: number) =>
+        Client.get("product-latest", { limit, locale: Client.locale })
 
 }
