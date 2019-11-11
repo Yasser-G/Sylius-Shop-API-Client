@@ -5,38 +5,34 @@ export default {
 
     /**
      * Show checkout summary.
-     * @param token Cart identifier.
      */
-    summary: (token: string) =>
-        Client.get(`checkout/${token}`),
+    summary: () =>
+        Client.get(`checkout/${Client.cartToken}`),
 
 
 
     /**
      * Address cart.
-     * @param token Cart identifier.
      * @param content Shipping & Billing Addresses
      */
-    address: (token: string, content: object) =>
-        Client.put(`checkout/${token}/address`, content),
+    address: (content: object) =>
+        Client.put(`checkout/${Client.cartToken}/address`, content),
 
 
     /**
      * Get available shipping methods.
-     * @param token Cart identifier.
      */
-    get_shipping_methods: (token: string) =>
-        Client.get(`checkout/${token}/shipping`),
+    get_shipping_methods: () =>
+        Client.get(`checkout/${Client.cartToken}/shipping`),
 
 
     /**
      * Choosing a cart shipping method.
-     * @param token Cart identifier.
      * @param id Order number of shipment for which shipping method should be specified.
      * @param content Shipping Method Object
      */
-    set_shipping_method: (token: string, id: string, content: object) =>
-        Client.put(`checkout/${token}/shipping/${id}`, content),
+    set_shipping_method: (id: string, content: object) =>
+        Client.put(`checkout/${Client.cartToken}/shipping/${id}`, content),
 
 
 
@@ -44,29 +40,26 @@ export default {
 
     /**
      * Get available payment methods.
-     * @param token Cart identifier.
      */
-    get_payment_methods: (token: string) =>
-        Client.get(`checkout/${token}/shipping`),
+    get_payment_methods: () =>
+        Client.get(`checkout/${Client.cartToken}/shipping`),
 
 
     /**
      * Choosing cart payment method.
-     * @param token Cart identifier.
      * @param id Order number of payment for which payment method should be specified.
      * @param content Payment Method Object
      */
-    set_payment_method: (token: string, id: string, content: object) =>
-        Client.put(`checkout/${token}/payment/${id}`, content),
+    set_payment_method: (id: string, content: object) =>
+        Client.put(`checkout/${Client.cartToken}/payment/${id}`, content),
 
 
     /**
      * Completing checkout.
-     * @param token Cart identifier.
      * @param content Email and Notes object
      */
-    complete: (token: string, content: object) =>
-        Client.put(`checkout/${token}/complete`, content),
+    complete: (content: object) =>
+        Client.put(`checkout/${Client.cartToken}/complete`, content),
 
 
 
