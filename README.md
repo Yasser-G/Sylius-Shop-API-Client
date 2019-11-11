@@ -11,6 +11,7 @@
 ### Implement Sylius Shop API Client into your app in just One Step!
 
 - Easy to configure API client for quick use
+- All API Plugin endpoints is supported!
 - Very simple way to add custom endpoints.
 - Well-Organized and scalable project.
 - All query params, paths and bodies are documented within the code using jsDoc.
@@ -125,6 +126,90 @@ ShopAPI.taxons.show_tree().then((response) => {
 
 
 ```
+
+### Cart `ShopAPI.cart`
+
+|Method|Status|
+|---|---|
+|**ShopAPI.cart.pick**|✅|
+|**ShopAPI.cart.show**|✅|
+|**ShopAPI.cart.drop**|✅|
+|**ShopAPI.cart.add**|✅|
+|**ShopAPI.cart.add_multiple**|✅|
+|**ShopAPI.cart.change_quantitiy**|✅|
+|**ShopAPI.cart.remove_item**|✅|
+|**ShopAPI.cart.shipping_cost**|✅|
+|**ShopAPI.cart.add_coupon**|✅|
+|**ShopAPI.cart.remove_coupon**|✅|
+
+### Products `ShopAPI.products`
+
+|Method|Status|
+|---|---|
+|**ShopAPI.products.by_slug**|✅|
+|**ShopAPI.products.by_code**|✅|
+|**ShopAPI.products.by_taxon_slug**|✅|
+|**ShopAPI.products.by_taxon_code**|✅|
+|**ShopAPI.products.reviews_by_slug**|✅|
+|**ShopAPI.products.reviews_by_code**|✅|
+|**ShopAPI.products.add_review_by_slug**|✅|
+|**ShopAPI.products.add_review_by_code**|✅|
+|**ShopAPI.products.latest**|✅|
+
+### Taxon `ShopAPI.taxon`
+   
+|Method|Status|
+|---|---|---|
+|**ShopAPI.taxon.show_tree**|✅|
+|**ShopAPI.taxon.show_subtree**|✅|
+
+
+### Checkout `ShopAPI.checkout`
+
+|Method|Status|
+|---|---|
+|**ShopAPI.checkout.summary**|✅|
+|**ShopAPI.checkout.address**|✅|
+|**ShopAPI.checkout.get_shipping_methods**|✅|
+|**ShopAPI.checkout.set_shipping_method**|✅|
+|**ShopAPI.checkout.get_payment_methods**|✅|
+|**ShopAPI.checkout.set_payment_method**|✅|
+|**ShopAPI.checkout.complete**|✅|
+
+
+### Orders `ShopAPI.orders`
+
+|Method|Status|
+|---|---|
+|**ShopAPI.orders.list_orders**|✅|
+|**ShopAPI.orders.order_details**|✅|
+
+     
+
+### User `ShopAPI.user`
+
+|Method|Status|
+|---|---|
+|**ShopAPI.user.request_reset_password**|✅|
+|**ShopAPI.user.password_reset**|✅|
+|**ShopAPI.user.register**|✅|
+|**ShopAPI.user.login**|✅|
+|**ShopAPI.user.verify_account**|✅|
+|**ShopAPI.user.me**|✅|
+|**ShopAPI.user.update_me**|✅|
+
+### Addresses `ShopAPI.addresses`
+
+|Method|Status|
+|---|---|
+|**ShopAPI.addresses.list**|✅|
+|**ShopAPI.addresses.create**|✅|
+|**ShopAPI.addresses.update**|✅|
+|**ShopAPI.addresses.delete**|✅|
+|**ShopAPI.addresses.set_default**|✅|
+
+
+
 
 ---
 
