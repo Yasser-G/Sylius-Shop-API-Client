@@ -44,6 +44,14 @@ import { API_Client } from "sylius-shop-api-client"
 API_Client.baseURL = "https://my.web.site/api/"
 
 
+// Set / Clear API Cart Identifier (token), used in all cart requests.
+// After Picking Cart => Set token
+API_Client.cartToken = "xxxxxxxxxxxxxxx"
+
+// After Dropping Cart => Clear token
+API_Client.cartToken = ""
+
+
 // Set API Default Headers ( Optional ), below values are already defaults.
 const myDefaultHeaders = {
   "Accept": "application/json",

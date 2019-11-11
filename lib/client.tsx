@@ -14,6 +14,17 @@ export class Client {
      */
     static baseURL = ""
 
+    /**
+     * Set / Clear API Cart Identifier (token)
+     * @example
+     * // Set After Picking  
+     * API_Client.cartToken = "xxxxxxxxxxxxxxx"
+     * 
+     * // Clear Afer Dropping
+     * API_Client.cartToken = ""
+     */
+    static cartToken = ""
+
 
 
     /**
