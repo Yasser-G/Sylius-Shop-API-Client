@@ -159,7 +159,7 @@ ShopAPI.taxons.show_tree().then((response) => {
 ### Taxon `ShopAPI.taxon`
    
 |Method|Status|
-|---|---|---|
+|---|---|
 |**ShopAPI.taxon.show_tree**|✅|
 |**ShopAPI.taxon.show_subtree**|✅|
 
