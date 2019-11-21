@@ -10,9 +10,9 @@ export class Client {
     /**
      * Initialize API BaseURL
      * @example
-     * API_Client.baseURL = "https://my.web.site/api/"
+     * API_Client.baseURL = "https://api.demo.sylius.com/shop-api/"
      */
-    static baseURL = ""
+    static baseURL = "https://api.demo.sylius.com/shop-api/"
 
     /**
      * Set / Clear API Cart Identifier (token)
