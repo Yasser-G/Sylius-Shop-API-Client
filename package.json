@@ -1,12 +1,15 @@
 {
   "name": "sylius-shop-api-client",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Sylius Shop API JS Client",
   "main": "index.tsx",
   "repository": {
     "type": "git",
     "url": "https://github.com/Yasser-G/SyliusShopAPIClient.git"
   },
-  "author": "Yasser G",
+  "author":{
+    "name": "Yasser G",
+    "email": "Yas@keemail.me"
+  },
   "license": "MIT"
 }
