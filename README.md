@@ -1,10 +1,3 @@
-
----
-# IMPORTANT NOTE: UNDER CONSTRUCTION!
-# This note will be removed when we are ready.
----
-
-
 # Sylius Shop API Client 
 ![npm][npmDownloads]  ![npm][npmLicense] ![npm][npmVersion]
 
@@ -92,8 +85,6 @@ API_Client.onUnauthorized = () => {
 ```ts
 import { ShopAPI } from "sylius-shop-api-client"
 
-// Default Requests usage: 
-
 
 // Async / Await approach
 async loadTaxons() {
@@ -156,12 +147,12 @@ ShopAPI.taxons.show_tree().then((response) => {
 |**ShopAPI.products.add_review_by_code**|✅|
 |**ShopAPI.products.latest**|✅|
 
-### Taxon `ShopAPI.taxon`
+### Taxons `ShopAPI.taxon`
    
 |Method|Status|
 |---|---|
-|**ShopAPI.taxon.show_tree**|✅|
-|**ShopAPI.taxon.show_subtree**|✅|
+|**ShopAPI.taxons.show_tree**|✅|
+|**ShopAPI.taxons.show_subtree**|✅|
 
 
 ### Checkout `ShopAPI.checkout`
