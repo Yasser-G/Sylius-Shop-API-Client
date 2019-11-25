@@ -51,15 +51,30 @@ export class Client {
 
 
     /**
-     * Set onUnauthorized handler
+     * Set onResponseStatus handler
+     *  to invoke your custom functions in certain response status codes
      * @example
-     * API_Client.onUnauthorized = () => {
+     * API_Client.onResponseStatus = (status) => {
      * 
-     *  // Clear UserData, Remove Auth Headers
+     *  switch(status) {
+     *  
+     *  case 403:
+     *      // Do something, etc Clear UserData, Remove Auth Headers.
+     *      break
+     * 
+     *  case 500:
+     *      // Do something else.
+     *      break
+     * 
+     *  default:
+     *      // Unhandled cases
+     *      console.log("Unhandled case for status ", status)
+     * 
+     *  }
      * 
      * }
      */
-    static onUnauthorized(): void { }
+    static onResponseStatus(status: number): void {  }
 
 
 

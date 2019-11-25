@@ -67,12 +67,25 @@ API_Client.appendHeader("Authorization", "Bearer xxxxx")
 API_Client.removeHeader("Authorization")
 
 
-// Set onUnauthorized handler, More Usage description will be added soon
-API_Client.onUnauthorized = () => {
-      
- // Clear UserData, Remove Auth Headers
- // ( Temporarily Not Working )
+// Set onResponseStatus handler,
+// to invoke your custom functions in certain response status codes
+API_Client.onResponseStatus = (status) => {
 
+  switch(status){
+
+    case 403:
+      // Do something, etc Clear UserData, Remove Auth Headers
+      break
+
+    case 500:
+      // Do something else
+      break
+
+    default:
+      // Unhandled cases
+      console.log("Unhandled case for status ", status)
+
+  }
 }
 
 ```

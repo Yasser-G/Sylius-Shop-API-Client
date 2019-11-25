@@ -45,16 +45,11 @@ export const request = async (
         // Request Failed For Some Reason
         const { message } = await response.json()
 
-        switch (response.status) {
-
-            case 403:
-                Client.onUnauthorized()
-
-            // Custom Reasons actions will be implemented here
-
-            default:
-                break;
-        }
+        /* 
+        Call onResponseStatus handler
+        to invoke your custom functions in certain response status codes
+        */
+        Client.onResponseStatus(response.status)
 
 
         // throw error message
