@@ -1,4 +1,5 @@
 import { Client } from './client'
+import { responseHandler } from './response'
 
 /**
     * New Request Call
@@ -35,25 +36,6 @@ export const request = async (
     // Main Step, Wait for fetch response.
     const response = await fetch(requestURL, requestDetails)
 
-    if (response.ok) {
-
-        // Request Succeeded
-        return await response.json()
-
-    } else {
-
-        // Request Failed For Some Reason
-        const { message } = await response.json()
-
-        /* 
-        Call onResponseStatus handler
-        to invoke your custom functions in certain response status codes
-        */
-        Client.onResponseStatus(response.status)
-
-
-        // throw error message
-        throw Error(message)
-    }
+    return await responseHandler(response)
 
 }
