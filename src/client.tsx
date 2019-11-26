@@ -149,18 +149,6 @@ export class Client {
     public static async delete(resourceURL: string, requestBody = null, requestHeaders = {}) {
         return await request(resourceURL, "DELETE", requestBody, requestHeaders)
     }
-    /**
-     * Custom Request
-     * @param {string} resourceURL 
-     * @param {string} method request method, GET by default
-     * @param {object} requestBody request body
-     * @param {object} requestHeaders 
-     * @throws {string} Error Message
-     * @returns {Promise} JSON Response
-     */
-    public static async custom_request(resourceURL: string, method = "GET", requestBody = null, requestHeaders = {}) {
-        return await request(resourceURL, method, requestBody, requestHeaders)
-    }
 
 
 }
