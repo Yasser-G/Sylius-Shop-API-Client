@@ -9,7 +9,7 @@ import addresses from './addresses'
 /**
  *  Shop API
  */
-export const ShopAPI = {
+const ShopAPI = {
 
     /**
      * All actions related to cart management.
@@ -55,3 +55,4 @@ export const ShopAPI = {
 
 
 }
+export default ShopAPI
