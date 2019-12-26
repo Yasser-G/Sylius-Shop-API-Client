@@ -1,4 +1,4 @@
-import { Client } from '../client'
+import API_Client from '../client'
 
 export default {
 
@@ -7,7 +7,7 @@ export default {
      * Show checkout summary.
      */
     summary: () =>
-        Client.get(`checkout/${Client.cartToken}`),
+        API_Client.get(`checkout/${API_Client.cartToken}`),
 
 
 
@@ -16,14 +16,14 @@ export default {
      * @param content Shipping & Billing Addresses
      */
     address: (content: object) =>
-        Client.put(`checkout/${Client.cartToken}/address`, content),
+        API_Client.put(`checkout/${API_Client.cartToken}/address`, content),
 
 
     /**
      * Get available shipping methods.
      */
     get_shipping_methods: () =>
-        Client.get(`checkout/${Client.cartToken}/shipping`),
+        API_Client.get(`checkout/${API_Client.cartToken}/shipping`),
 
 
     /**
@@ -32,7 +32,7 @@ export default {
      * @param content Shipping Method Object
      */
     set_shipping_method: (id: string, content: object) =>
-        Client.put(`checkout/${Client.cartToken}/shipping/${id}`, content),
+        API_Client.put(`checkout/${API_Client.cartToken}/shipping/${id}`, content),
 
 
 
@@ -42,7 +42,7 @@ export default {
      * Get available payment methods.
      */
     get_payment_methods: () =>
-        Client.get(`checkout/${Client.cartToken}/shipping`),
+        API_Client.get(`checkout/${API_Client.cartToken}/shipping`),
 
 
     /**
@@ -51,7 +51,7 @@ export default {
      * @param content Payment Method Object
      */
     set_payment_method: (id: string, content: object) =>
-        Client.put(`checkout/${Client.cartToken}/payment/${id}`, content),
+        API_Client.put(`checkout/${API_Client.cartToken}/payment/${id}`, content),
 
 
     /**
@@ -59,7 +59,7 @@ export default {
      * @param content Email and Notes object
      */
     complete: (content: object) =>
-        Client.put(`checkout/${Client.cartToken}/complete`, content),
+        API_Client.put(`checkout/${API_Client.cartToken}/complete`, content),
 
 
 

@@ -1,4 +1,4 @@
-import { Client } from '../client'
+import API_Client from '../client'
 
 export default {
 
@@ -7,7 +7,7 @@ export default {
      * @param email passed email
      */
     request_reset_password: (email: string) =>
-        Client.put("request-password-reset", { email }),
+        API_Client.put("request-password-reset", { email }),
 
 
     /**
@@ -16,7 +16,7 @@ export default {
      * @param new_password new password
      */
     password_reset: (token: string, new_password: string) =>
-        Client.put(`password-reset/${token}`, { first: new_password, second: new_password }),
+        API_Client.put(`password-reset/${token}`, { first: new_password, second: new_password }),
 
 
     /**
@@ -32,17 +32,16 @@ export default {
      * }
      */
     register: (user_object: object) =>
-        Client.post("register", user_object),
+        API_Client.post("register", user_object),
 
 
     /**
      * Logs the user in and returns the token
      * @param email
      * @param password
-     * @param token
      */
-    login: (email: string, password: string, token: string) =>
-        Client.post("login", { email, password, token }),
+    login: (email: string, password: string) =>
+        API_Client.post("login", { email, password }),
 
 
 
@@ -50,8 +49,8 @@ export default {
      * Verify an account by verification token
      * @param token 
      */
-    verify_account: (token) =>
-        Client.get("verify-account", { token }),
+    verify_account: (token: string) =>
+        API_Client.get("verify-account", { token }),
 
 
 
@@ -59,7 +58,7 @@ export default {
      * Provides currently logged in user details.
      */
     me: () =>
-        Client.get("me"),
+        API_Client.get("me"),
 
 
     /**
@@ -77,6 +76,6 @@ export default {
      * }
      */
     update_me: (user_object: object) =>
-        Client.put("me", user_object),
+        API_Client.put("me", user_object),
 
 }

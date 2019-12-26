@@ -1,4 +1,4 @@
-import { Client } from '../client'
+import API_Client from '../client'
 
 export default {
 
@@ -6,13 +6,13 @@ export default {
      * Show taxon tree.
      */
     show_tree: () =>
-        Client.get("taxons", { locale: Client.locale }),
+        API_Client.get("taxons", { locale: API_Client.locale }),
 
     /**
      * Show taxon with given code.
      * @param code Code of expected taxon.
      */
     show_subtree: (code: string) =>
-        Client.get(`taxons/${code}`, { locale: Client.locale }),
+        API_Client.get(`taxons/${code}`, { locale: API_Client.locale }),
 
 }

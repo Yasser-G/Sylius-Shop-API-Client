@@ -1,5 +1,5 @@
-import { Client } from './client'
-import { responseHandler } from './response'
+import API_Client from './client'
+import responseHandler from './response'
 
 /**
     * New Request Call
@@ -10,28 +10,28 @@ import { responseHandler } from './response'
     * @throws {string} Error Message
     * @returns {Promise} JSON Response
 */
-export const request = async (
+const request = async (
     resourceURL: string,
     method = 'GET',
-    requestBody: object = null,
+    requestBody: object = {},
     requestHeaders: object = {}
 ): Promise<object> => {
 
     // Full URL: Base URL + Resource URL
-    const requestURL = Client.baseURL + resourceURL
+    const requestURL = API_Client.baseURL + resourceURL
 
     const headers = new Headers({
         // Default Headers
-        ...Client.defaultHeaders,
+        ...API_Client.defaultHeaders,
         // Additional Headers 
         ...requestHeaders
     })
 
     // Fetch RequestDetails
-    const requestDetails = { method, headers, body: null }
+    const requestDetails = { method, headers, body: "" }
 
     // Add request Body (If Any)
-    if (requestBody) { requestDetails.body = JSON.stringify(requestBody) }
+    if (method != "GET") { requestDetails.body = JSON.stringify(requestBody) }
 
     // Main Step, Wait for fetch response.
     const response = await fetch(requestURL, requestDetails)
@@ -39,3 +39,4 @@ export const request = async (
     return await responseHandler(response)
 
 }
+export default request

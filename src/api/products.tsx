@@ -1,4 +1,4 @@
-import { Client } from '../client'
+import API_Client from '../client'
 
 export default {
 
@@ -6,20 +6,18 @@ export default {
     /**
      * Show product catalog by taxon slug.
      * @param taxonSlug Slug of expected product.
-     * @param limit Number of expected products per page.
      * @param page Page number.
      */
-    by_taxon_slug: (taxonSlug: string, limit: number, page: number) =>
-        Client.get(`taxon-products/by-slug/${taxonSlug}`, { locale: Client.locale, limit, page }),
+    by_taxon_slug: (taxonSlug: string, page: number) =>
+        API_Client.get(`taxon-products/by-slug/${taxonSlug}`, { locale: API_Client.locale, limit: API_Client.limit, page }),
 
     /**
      * Show product catalog by taxon code.
      * @param taxonCode Code of taxonomy for which products should be listed.
-     * @param limit Number of expected products per page.
      * @param page Page number.
      */
-    by_taxon_code: (taxonCode: string, limit: number, page: number) =>
-        Client.get(`taxon-products/by-code/${taxonCode}`, { locale: Client.locale, limit, page }),
+    by_taxon_code: (taxonCode: string, page: number) =>
+        API_Client.get(`taxon-products/by-code/${taxonCode}`, { locale: API_Client.locale, limit: API_Client.limit, page }),
 
 
     /**
@@ -27,7 +25,7 @@ export default {
      * @param slug Slug of expected product.
      */
     reviews_by_slug: (slug: string) =>
-        Client.get(`products/by-slug/${slug}/reviews`),
+        API_Client.get(`products/by-slug/${slug}/reviews`),
 
 
     /**
@@ -35,7 +33,7 @@ export default {
      * @param code Code of expected product.
      */
     reviews_by_code: (code: string) =>
-        Client.get(`products/by-code/${code}/reviews`),
+        API_Client.get(`products/by-code/${code}/reviews`),
 
     /**
      * Add a review to the product by product slug.
@@ -50,7 +48,7 @@ export default {
      * }
      */
     add_review_by_slug: (slug: string, content: object) =>
-        Client.post(`products/by-slug/${slug}/reviews`, content),
+        API_Client.post(`products/by-slug/${slug}/reviews`, content),
 
 
     /**
@@ -66,7 +64,7 @@ export default {
      * }
      */
     add_review_by_code: (code: string, content: object) =>
-        Client.get(`products/by-code/${code}/reviews`, content),
+        API_Client.get(`products/by-code/${code}/reviews`, content),
 
 
     /**
@@ -74,20 +72,22 @@ export default {
      * @param slug Slug of expected product.
      */
     by_slug: (slug: string) =>
-        Client.get(`products/by-code/${slug}`, { locale: Client.locale }),
+        API_Client.get(`products/by-code/${slug}`, { locale: API_Client.locale }),
 
     /**
      * Show a product with the given code.
      * @param code Code of expected product.
      */
     by_code: (code: string) =>
-        Client.get(`products/by-code/${code}`, { locale: Client.locale }),
+        API_Client.get(`products/by-code/${code}`, { locale: API_Client.locale }),
 
     /**
      * Show latest products.
      * @param limit Number of expected products per page.
      */
-    latest: (limit: number) =>
-        Client.get("product-latest", { limit, locale: Client.locale })
+    latest: (limit: string) =>
+        API_Client.get("product-latest", { limit: limit || API_Client.limit, locale: API_Client.locale }),
+
+
 
 }

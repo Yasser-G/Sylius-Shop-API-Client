@@ -1,10 +1,10 @@
 import { convertObjToParams } from './helpers'
-import { request } from "./request"
+import request from "./request"
 
 /**
  * API Client
  */
-export class Client {
+class API_Client {
 
 
     /**
@@ -30,8 +30,15 @@ export class Client {
      * @example
      * API_Client.locale = "en_US"
      */
-    static locale = ""
+    static locale = "en_US"
 
+    /**
+     * Set API default pagination limit
+     * Number of expected products per page.
+     * @example
+     * API_Client.limit = "10"
+     */
+    static limit = "10"
 
 
     /**
@@ -74,7 +81,7 @@ export class Client {
      * 
      * }
      */
-    static onResponseStatus(status: number): void {  }
+    static onResponseStatus(status: number): void { }
 
 
 
@@ -121,34 +128,52 @@ export class Client {
     /**
      * Retrieve Resource
      */
-    public static async get(resourceURL: string, requestParams = null, requestHeaders = {}) {
+    static get = async (
+        resourceURL: string,
+        requestParams?: object,
+        requestHeaders = {}
+    ) => {
         if (requestParams) { resourceURL += convertObjToParams(requestParams) }
-        return await request(resourceURL, "GET", null, requestHeaders)
+        return await request(resourceURL, "GET", {}, requestHeaders)
     }
+
     /**
      * Create Resource
      */
-    public static async post(resourceURL: string, requestBody = null, requestHeaders = {}) {
-        return await request(resourceURL, "POST", requestBody, requestHeaders)
-    }
+    static post = async (
+        resourceURL: string,
+        requestBody?: object,
+        requestHeaders?: object,
+    ) => request(resourceURL, "POST", requestBody, requestHeaders)
+
     /**
      * Replace Resource
      */
-    public static async put(resourceURL: string, requestBody = null, requestHeaders = {}) {
-        return await request(resourceURL, "PUT", requestBody, requestHeaders)
-    }
+    static put = async (
+        resourceURL: string,
+        requestBody?: object,
+        requestHeaders?: object,
+    ) => request(resourceURL, "PUT", requestBody, requestHeaders)
+
     /**
      * Modify Resource
      */
-    public static async patch(resourceURL: string, requestBody = null, requestHeaders = {}) {
-        return await request(resourceURL, "PATCH", requestBody, requestHeaders)
-    }
+    static patch = async (
+        resourceURL: string,
+        requestBody?: object,
+        requestHeaders?: object,
+    ) => request(resourceURL, "PATCH", requestBody, requestHeaders)
+
     /**
      * Delete Resource
      */
-    public static async delete(resourceURL: string, requestBody = null, requestHeaders = {}) {
-        return await request(resourceURL, "DELETE", requestBody, requestHeaders)
-    }
+    static delete = async (
+        resourceURL: string,
+        requestBody?: object,
+        requestHeaders?: object,
+    ) => request(resourceURL, "DELETE", requestBody, requestHeaders)
+
 
 
 }
+export default API_Client

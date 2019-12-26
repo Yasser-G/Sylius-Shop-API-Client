@@ -1,18 +1,18 @@
-import { Client } from '../client'
+import API_Client from '../client'
 
 export default {
     /**
      * Gets the address book of the currently logged in user
      */
     list: () =>
-        Client.get("address-book"),
+        API_Client.get("address-book"),
 
     /**
      * Creates a new address in the the address book
      * @param content Address object
      */
     create: (content: object) =>
-        Client.post("address-book", content),
+        API_Client.post("address-book", content),
 
 
     /**
@@ -21,14 +21,14 @@ export default {
      * @param content Address object
      */
     update: (id: number, content: object) =>
-        Client.put(`address-book/${id}`, content),
+        API_Client.put(`address-book/${id}`, content),
 
     /**
      * Deletes an address from the address book
      * @param id Id of the address to delete
      */
     delete: (id: number) =>
-        Client.delete(`address-book/${id}`),
+        API_Client.delete(`address-book/${id}`),
 
 
     /**
@@ -36,6 +36,6 @@ export default {
      * @param id Id of the address to be the default address
      */
     set_default: (id: number) =>
-        Client.delete(`address-book/${id}/default`),
+        API_Client.delete(`address-book/${id}/default`),
 
 }

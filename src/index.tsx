@@ -1,2 +1,2 @@
-export { Client as API_Client } from './client'
-export { ShopAPI } from './api'
+export { default as API_Client } from './client'
+export { default as ShopAPI } from './api'
