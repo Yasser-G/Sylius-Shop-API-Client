@@ -51,6 +51,10 @@ API_Client.cartToken = ""
 API_Client.locale = "en_US"
 
 
+// Set API default pagination limit
+API_Client.limit = "10"
+
+
 // Set API Default Headers ( Optional ), below values are already defaults.
 const myDefaultHeaders = {
   "Accept": "application/json",
