@@ -28,11 +28,11 @@ export default {
 
     /**
      * Choosing a cart shipping method.
+     * @param method Shipping Method Code
      * @param id Order number of shipment for which shipping method should be specified.
-     * @param content Shipping Method Object
      */
-    set_shipping_method: (id: string, content: object) =>
-        API_Client.put(`checkout/${API_Client.cartToken}/shipping/${id}`, content),
+    set_shipping_method: (method: string, id = 0) =>
+        API_Client.put(`checkout/${API_Client.cartToken}/shipping/${id}`, { method }),
 
 
 
@@ -42,16 +42,16 @@ export default {
      * Get available payment methods.
      */
     get_payment_methods: () =>
-        API_Client.get(`checkout/${API_Client.cartToken}/shipping`),
+        API_Client.get(`checkout/${API_Client.cartToken}/payment`),
 
 
     /**
      * Choosing cart payment method.
+     * @param method Payment Method Code
      * @param id Order number of payment for which payment method should be specified.
-     * @param content Payment Method Object
      */
-    set_payment_method: (id: string, content: object) =>
-        API_Client.put(`checkout/${API_Client.cartToken}/payment/${id}`, content),
+    set_payment_method: (method: string, id: number = 0) =>
+        API_Client.put(`checkout/${API_Client.cartToken}/payment/${id}`, { method }),
 
 
     /**
