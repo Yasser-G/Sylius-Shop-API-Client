@@ -3,19 +3,17 @@ import API_Client from "./client"
 const responseHandler = async (response: Response) => {
 
     const responseText = await response.text()
-    const successWithoutContent = response.status === 204
 
-    let responseJson
+    let responseJson: any | object = {}
+
+    // Request Succeeded Without Content
+    if (response.status === 204) return responseJson
+
 
     try {
 
-        responseJson =
-
-            // Set Empty object as responseJson
-            successWithoutContent ? {} :
-
-                // Try to parse response as JSON
-                JSON.parse(responseText)
+        // Try to parse response as JSON
+        responseJson = JSON.parse(responseText)
 
 
     } catch (error) {
@@ -35,13 +33,33 @@ const responseHandler = async (response: Response) => {
     } else {
 
         // Request Failed For Some Reason
-        let { message: errorMessage, errors } = responseJson
+        let { message, errors } = responseJson
 
-        // Formating Throwable Error Message
-        if (typeof errors != 'undefined') {
+        const hasErrors = (typeof errors != 'undefined')
+
+
+        if (hasErrors) {
+
+            // Checking Response Error Types
+            const hasShallowErrors = Array.isArray(Object.values(errors))
+            const hasSubErrors = Array.isArray(errors.errors)
+            const hasChildrenErrors = typeof errors.children != 'undefined'
+            const childErrorHasErrors = (er: any) => typeof er.errors != 'undefined'
 
             // Include errors as description
-            errorMessage += "\n\n" + Object.values(errors).join("\n")
+            message += "\n\n"
+
+            // Formating Throwable & Readable Error Message
+
+            if (hasShallowErrors) { message += Object.values(errors).join("\n") }
+            if (hasSubErrors) { message += errors.errors.join("\n") }
+
+            if (hasChildrenErrors) {
+                Object.values(errors.children).forEach((er: any) => {
+                    if (childErrorHasErrors(er)) { message += er.errors.join("\n") }
+                });
+            }
+
         }
 
 
@@ -52,7 +70,7 @@ const responseHandler = async (response: Response) => {
         API_Client.onResponseStatus(response.status)
 
         // Throw error message
-        throw Error(errorMessage)
+        throw Error(message)
     }
 
 }
