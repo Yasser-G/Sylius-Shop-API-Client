@@ -51,7 +51,7 @@ const responseHandler = async (response: Response) => {
 
             // Formating Throwable & Readable Error Message
 
-            if (hasShallowErrors) { message += Object.values(errors).join("\n") }
+            if (hasShallowErrors && !hasChildrenErrors) { message += Object.values(errors).join("\n") }
             if (hasSubErrors) { message += errors.errors.join("\n") }
 
             if (hasChildrenErrors) {

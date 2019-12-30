@@ -60,7 +60,7 @@ export default {
      *  "title": "Awesome product",
      *  "rating": 5,
      *  "comment": "If I were a mug, I would like to be like this one!",
-     *  "email": "customer@example.com"
+     *  "email": "customer`@example.com"
      * }
      */
     add_review_by_code: (code: string, content: object) =>
