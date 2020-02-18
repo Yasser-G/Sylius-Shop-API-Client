@@ -4,7 +4,7 @@
 ### Implement Sylius Shop API Client into your app in just One Step!
 
 - Easy to configure API client for quick use
-- All API Plugin endpoints is supported!
+- All API Plugin endpoints are supported!
 - Very simple way to add custom endpoints.
 - Well-Organized and scalable project.
 - All query params, paths and bodies are documented within the code using jsDoc.

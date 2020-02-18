@@ -1,6 +1,6 @@
 {
   "name": "sylius-shop-api-client",
-  "version": "0.1.2",
+  "version": "1.0.1",
   "description": "Sylius Shop API JS Client",
   "main": "index.tsx",
   "repository": {

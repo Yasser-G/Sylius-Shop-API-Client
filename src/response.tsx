@@ -44,7 +44,6 @@ const responseHandler = async (response: Response) => {
             const hasShallowErrors = Array.isArray(Object.values(errors))
             const hasSubErrors = Array.isArray(errors.errors)
             const hasChildrenErrors = typeof errors.children != 'undefined'
-            const childErrorHasErrors = (er: any) => typeof er.errors != 'undefined'
 
             // Include errors as description
             message += "\n\n"
@@ -55,9 +54,10 @@ const responseHandler = async (response: Response) => {
             if (hasSubErrors) { message += errors.errors.join("\n") }
 
             if (hasChildrenErrors) {
-                Object.values(errors.children).forEach((er: any) => {
+                const childErrorHasErrors = (er: any) => typeof er.errors != 'undefined'
+                for (const er in errors.children) {
                     if (childErrorHasErrors(er)) { message += er.errors.join("\n") }
-                });
+                }
             }
 
         }

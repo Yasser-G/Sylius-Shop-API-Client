@@ -1,7 +1,6 @@
 /**
  * Converts any Object into http request params string
  * @param object Object to convert
- * @param encodeResult Optionally Encode result params string 
  */
 const convertObjToParams = (object: object): string => {
 

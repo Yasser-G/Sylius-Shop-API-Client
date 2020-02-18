@@ -78,4 +78,18 @@ export default {
     update_me: (user_object: object) =>
         API_Client.put("me", user_object),
 
+    /**
+     * Updates the password of the user that is currently logged in.
+     * @param currentPassword Current User Password
+     * @param newPassword New User Password
+     */
+    change_password: (currentPassword: string, newPassword: string) =>
+        API_Client.put("me", {
+            currentPassword,
+            newPassword: {
+                first: newPassword,
+                second: newPassword
+            }
+        }),
+
 }
