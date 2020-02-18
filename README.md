@@ -205,6 +205,7 @@ ShopAPI.taxons.show_tree().then((response) => {
 |**ShopAPI.user.verify_account**|✅|
 |**ShopAPI.user.me**|✅|
 |**ShopAPI.user.update_me**|✅|
+|**ShopAPI.user.change_password**|✅|
 
 ### Addresses `ShopAPI.addresses`
 
