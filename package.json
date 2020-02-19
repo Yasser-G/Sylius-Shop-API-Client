@@ -7,9 +7,12 @@
     "type": "git",
     "url": "https://github.com/Yasser-G/SyliusShopAPIClient.git"
   },
-  "author":{
+  "author": {
     "name": "Yasser G",
     "email": "Yas@keemail.me"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "license": "MIT"
 }
